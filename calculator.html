@@ -156,6 +156,7 @@
             } else {
                 currentInput += number;
             }
+            console.log(number);
             updateDisplay();
         }
 
@@ -200,16 +201,21 @@
                 
                 const result = Function('"use strict"; return (' + expression + ')')();
                 
+                console.log('=');
                 if (isNaN(result) || !isFinite(result)) {
                     currentInput = 'Ошибка';
+                    console.log('Ошибка');
                 } else {
                     currentInput = result.toString();
+                    console.log(result);
                 }
                 
                 updateDisplay();
                 shouldResetDisplay = true;
             } catch (error) {
                 currentInput = 'Ошибка';
+                console.log('=');
+                console.log('Ошибка');
                 updateDisplay();
                 shouldResetDisplay = true;
             }
